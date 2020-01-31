@@ -4,6 +4,7 @@
 
 int* get_tuple_by_index(int** setarr, int index, int numberofsets, int setlenarr[])
 {
+    // Get a tuple of the Cartesian Product of given sets at given index 
     int i, element;
     int* tuple = malloc(numberofsets * sizeof(int));
     for (i = numberofsets - 1; i >= 0; i--)
@@ -17,6 +18,7 @@ int* get_tuple_by_index(int** setarr, int index, int numberofsets, int setlenarr
 
 void printl(int *arr)
 {
+    // Prints in tuple format
     printf("(");
     for (int i = 0; i < 3; i++)
     {
