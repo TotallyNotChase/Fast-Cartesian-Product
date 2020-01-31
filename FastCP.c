@@ -2,15 +2,15 @@
 #include<stdlib.h>
 #include<string.h>
 
-int* get_tuple_by_index(int setarr[][256], int index, int setarrlen, int setlen)
+int* get_tuple_by_index(int** setarr, int index, int numberofsets, int setlenarr[])
 {
     int i, element;
-    int* tuple = malloc(setarrlen * sizeof(int));
-    for (i = setarrlen - 1; i >= 0; i--)
+    int* tuple = malloc(numberofsets * sizeof(int));
+    for (i = numberofsets - 1; i >= 0; i--)
     {
-        element = setarr[i][index % setlen];
+        element = setarr[i][index % setlenarr[i]];
         tuple[i] = element;
-        index /= setlen;
+        index /= setlenarr[i];
     }
     return tuple;
 }
@@ -27,7 +27,7 @@ void printl(int *arr)
 
 void main()
 {
-    int firstset[256], secondset[256], thirdset[256], setarr[3][256], i;
+    int firstset[256], secondset[256], thirdset[256], i;
     static int *result;
     for (i = 0; i < 256; i++)
     {
@@ -35,9 +35,7 @@ void main()
         secondset[i] = i + 1;
         thirdset[i] = i + 1;
     }
-    memcpy(setarr[0], firstset, sizeof(firstset));
-    memcpy(setarr[1], secondset, sizeof(secondset));
-    memcpy(setarr[2], thirdset, sizeof(thirdset));
-    result = get_tuple_by_index(setarr, 11564203, 3, 256);
+    int *setarr[] = {firstset, secondset, thirdset};
+    result = get_tuple_by_index(setarr, 11564203, 3, (int[]) { 256, 256, 256 });
     printl(result);
 }
