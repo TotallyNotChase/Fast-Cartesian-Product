@@ -16,11 +16,15 @@ For example, if we'd call `get_tuple_by_index` with the **6th index** (starting 
 * Additionally, in each iteration, the `index` is set to `index // length_of_current_set` where `//` signifies **integer division**
   So, in this case, in the first iteration, for `index = 6`, the `current element` will be `C[6 % 2]` or `C[0]` or `1`.
   That will now be added as the **last element** of `result tuple`. It'll now look like -> `(1)`
+  
   `index` is now set to `6 // 2` or `3`
+  
   
   In the second iteration, the `current element` will be `B[3 % 4]` or `B[3]` or `9`.
   That will now be added as the **second to last element** of `result tuple`. It'll now look like -> `(9, 1)`
-  `index` is now set to `3 // 2` or `1`
   
-  In the third iteration, the `current element` will be `A[1 % 3]` or `A[0]` or `1`.
+  `index` is now set to `3 // 4` or `0`
+  
+  
+  In the third iteration, the `current element` will be `A[0 % 3]` or `A[0]` or `1`.
   That will now be added as the **third to last element** (or first element in this case) of `result tuple`. It'll now look like -> `(1, 9, 1)`
