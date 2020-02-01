@@ -11,7 +11,8 @@ For `C`, you'd also need to pass in the **number of sets** (`3` in this case) an
 For example, if we'd call `get_tuple_by_index` with the **6th index** (starting from 0) of the cartesian product `A x B x C`, we'd get `(1, 9, 1)`
 ## How it works
 *For this demonstration, we'll be using the sets mentioned above as examples*
-* The `list`/`array` of sets, that we'd like the cartesian product to, in this case `[A, B, C]` or `{A, B, C}` is reverse iterated through. * In each iteration, the `result tuple` is filled up from backwards.
+* The `list`/`array` of sets, that we'd like the cartesian product to, in this case `[A, B, C]` or `{A, B, C}` is reverse iterated through.
+* In each iteration, the `result tuple` is filled up from backwards.
 * In each iteration, the `current element` of the `result tuple` will be the `index % length_of_current_set`th index of the current set.
 * Additionally, in each iteration, the `index` is set to `index // length_of_current_set` where `//` signifies **integer division**
   So, in this case, in the first iteration, for `index = 6`, the `current element` will be `C[6 % 2]` or `C[0]` or `1`.
